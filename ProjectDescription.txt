@@ -1,0 +1,15 @@
+Project Title
+DIVidends
+Team members
+Ron Aaron Frederick Leticia
+Project Description
+What's Nearby?
+Sketch Design
+---
+APIs used
+https://www.greatschools.org/api/request-api-key
+https://rapidapi.com/dimas/api/Pexels
+https://yourmapper2.p.rapidapi.com
+Rough breakdown of tasks
+https://crime-data-explorer.fr.cloud.gov/api
+Search an area for food housing schools and more
