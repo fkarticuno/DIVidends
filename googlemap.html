@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!--
     https://developers.google.com/maps/documentation/javascript/adding-a-google-map
-    AIzaSyCbZB3_pes1Ise0Ild5KHBIR8nLW5KhzwA
 -->
 <html>
   <head>
@@ -17,6 +16,8 @@
     <!--<h3>My Google Maps Demo</h3>-->
     <!--The div element for the map -->
     <div id="map"></div>
+    <script src ='https://www.gstatic.com/firebasejs/live/3.0/firebase.js'></script>
+  
     <script>
 // Initialize and add the map
 function initMap() {
@@ -29,6 +30,7 @@ function initMap() {
       document.getElementById('map'), {zoom: 10, center: richmond});
   // The marker, positioned at Uluru
   var marker = new google.maps.Marker({position: richmond, map: map});
+  
 }
     </script>
     <script async defer
