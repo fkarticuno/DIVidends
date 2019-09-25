@@ -7,7 +7,7 @@
 
     <script src ='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src ='https://www.gstatic.com/firebasejs/live/3.0/firebase.js'></script>
-    <script src = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js'></script>
+    <script> src="https://momentjs.com/downloads/moment.js"</script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./Assets/style.css"></link>
@@ -93,9 +93,9 @@
                                 <h3>NEARBY</h3>
                             </div>
                             <ol>
-                                <li>Burger King</li>
-                                <li>Taco Bell</li>
-                                <li>McDonalds</li>
+                                <li id="nli1">Burger King</li>
+                                <li id="nli2">Taco Bell</li>
+                                <li id="nli3">McDonalds</li>
                             </ol>
                         </div>
 
@@ -134,5 +134,63 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    $('#nli1').on('click',function(){
+        $('#spacer2').text("Burgers")
+        // add marker at burgerking lat lng
+    })
+    $('#nli2').on('click',function(){
+        $('#spacer2').text("face")
+        // add marker at burgerking lat lng
+    })
+    $('#nli3').on('click',function(){
+        $('#spacer2').text("Laserloop")
+        // add marker at burgerking lat lng
+    })
+    $('#nli4').on('click',function(){
+        $('#spacer2').text("Catnip")
+        // add marker at burgerking lat lng
+    })
+
+</script>
 </body>
 </html>
