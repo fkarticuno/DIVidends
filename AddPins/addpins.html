@@ -7,7 +7,7 @@
 
     <script src ='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src ='https://www.gstatic.com/firebasejs/live/3.0/firebase.js'></script>
-    <script src = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js'></script>
+    <script> src="https://momentjs.com/downloads/moment.js"</script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     <script src= "addpins.js"></script>
@@ -86,12 +86,13 @@
     <script>
     var key1 = "AIzaSyCbZB3_pes1Ise0Ild5KHBIR8nLW5KhzwA";
     var key2 = "AIzaSyBP0yaCA8CWeahKZVjC3Utf8wgHXt-qp58";
+    var pos = {};
 // Initialize and add the map
 function initMap() {
   // The location of Uluru
   var uluru = {lat: -25.344, lng: 131.036};
   var richmond = {lat: 37.5407 , lng: -77.4360};
-  
+  var currentloc = {lat: 37.5407 , lng: -77.4360};
   // Devedit add var infowindow
   var infoWindow=0;
 
@@ -99,14 +100,14 @@ function initMap() {
   var map = new google.maps.Map(
       document.getElementById('map'), {zoom: 10, center: richmond});
   // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: richmond, map: map});
+  //var marker = new google.maps.Marker({position: currentloc, map: map});
   
     infoWindow = new google.maps.InfoWindow;
 
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
+                pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
                 };
@@ -135,25 +136,22 @@ function initMap() {
             infoWindow.open(map);
         }
 }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbZB3_pes1Ise0Ild5KHBIR8nLW5KhzwA&callback=initMap">
-    </script>
-    <script>
-    // Handle onclick
+
+// Handle onclick
     // test url
     //  https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=mongolian%20grill&inputtype=textquery&fields=photos,formatted_address,name,opening_hours,rating&locationbias=circle:2000@47.6918452,-122.2226413&key=YOUR_API_KEY
     $('#submission').on('click', function(){
-    var APIKey = "OrGsAQPACjDG7CuKA31b1bSM9ZqDShC3";
-    var city = 'petersburg';
+
+    //var marker = new google.maps.Marker({position: currentloc, map: map});
     // Here we are building the URL we need to query the database
+    console.log(pos);
     var queryURL ={
             main:   "https://maps.googleapis.com/maps/api/place/nearbysearch/json",
-            loc:    "?location=37.253153399999995,-77.4064557", // unable to retrive pos.lat, pos.lng
+            loc:    "?location="+pos.lat+","+pos.lng,
             rad:    "&radius="+$("#area").val(),
             type:   "&types=food",
             name:   "&name=harbour",
-            key:    "&key=AIzaSyBP0yaCA8CWeahKZVjC3Utf8wgHXt-qp58",
+            key:    key2,
         };
     
     $.ajax({
@@ -166,7 +164,7 @@ function initMap() {
         and other variations into the queryURL, also tried creating a [HEAD" Access-Control-Allow-Origin]
          before the url and get methods
         */
-        HEAD: "Access-Control-Allow-Origin", // does nothing as of 9:20 PM 9/23/2019
+        headers:{ "Access-Control-Allow-Origin":"laser"}, // does nothing as of 9:20 PM 9/23/2019
         url: queryURL.main+queryURL.loc+queryURL.rad+queryURL.type+queryURL.name+queryURL.key,
         method: "GET",
     }).then(function(response) {
@@ -199,6 +197,10 @@ function initMap() {
         
         })
     
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbZB3_pes1Ise0Ild5KHBIR8nLW5KhzwA&callback=initMap">
     </script>
 
 </body>
