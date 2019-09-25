@@ -12,4 +12,3 @@ https://rapidapi.com/dimas/api/Pexels
 https://yourmapper2.p.rapidapi.com
 Rough breakdown of tasks
 https://crime-data-explorer.fr.cloud.gov/api
-Search an area for food housing schools and more
