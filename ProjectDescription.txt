@@ -12,13 +12,3 @@ https://rapidapi.com/dimas/api/Pexels
 https://yourmapper2.p.rapidapi.com
 Rough breakdown of tasks
 https://crime-data-explorer.fr.cloud.gov/api
-Search an area for food housing schools and more
-
-//Trip Expert API for attractions
-https://www.tripexpert.com/api
-
-//Eat Street API for nearby restaurants
-https://developers.eatstreet.com/endpoint/search
-
-//Zillow API for real estate
-https://www.zillow.com/howto/api/APIOverview.htm

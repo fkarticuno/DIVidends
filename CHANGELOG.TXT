@@ -1,0 +1,11 @@
+2:56 PM 9/22/2019   FKA OPENED
+    Created mockup for app
+    Obtained google map api and key
+4:25 PM 9/22/2019   FKA WORK PAUSED
+7:39 PM 9/23/2019   FKA WORK START 
+    Created AddPins dir to test adding pins to maps with user input.
+9:51 PM 9/23/2019   FKA WORK PAUSE
+    Enabled GPS tracking with html5 with https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/geolocation
+    Attempted to integrate Places API https://developers.google.com/places/web-service/intro
+        Issues tracked @ addpins.html lines 160-168 + lines 177-196
+    Initaial concern of adding map pins to map has not yet been explored
