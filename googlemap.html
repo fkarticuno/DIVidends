@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+    https://developers.google.com/maps/documentation/javascript/adding-a-google-map
+-->
+<html>
+  <head>
+      <script src ='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 270px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <input type="button" id="BK" value="Burger King">
+    <!--<h3>My Google Maps Demo</h3>-->
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script src ='https://www.gstatic.com/firebasejs/live/3.0/firebase.js'></script>
+  
+    <script>
+// Initialize and add the map
+var marker = 0;
+var newpos = 0;
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: -25.344, lng: 131.036};
+  var richmond = {lat: 37.5407 , lng: -77.4360};
+  newpos = {lat: 37.5407 , lng: -77.5360};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 10, center: richmond});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: richmond, map: map});
+  
+}
+$('#BK').on('click',function(){
+  var  marker = new google.maps.Marker({position: newpos, map: map});
+    })
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbZB3_pes1Ise0Ild5KHBIR8nLW5KhzwA&callback=initMap">
+    </script>
+  </body>
+</html>

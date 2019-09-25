@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src ='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src ='https://www.gstatic.com/firebasejs/live/3.0/firebase.js'></script>
+    <script> src="https://momentjs.com/downloads/moment.js"</script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./Assets/style.css"></link>
+    <script src="Assets/app.js"></script>
+    
+    <title>mockup</title>
+
+    <style>
+        div {
+            border: 2px solid black;
+            background-color: #b666d2;
+            text-align: center;
+            margin: auto;
+        }
+        iframe {
+            height: 300px;
+            width: 100%;
+        }
+        .row {
+            border: 1px solid blue;
+            background-color: powderblue;
+        }
+        #gutter {
+            height: 310px;
+        }
+    
+    </style>
+
+</head>
+<body>
+    
+</body>
+</html>
+
+
+    <title>Main</title>
+</head>
+<body>
+    <!--
+        2:56 PM 9/22/2019   FKA OPENED
+        4:25 PM 9/22/2019   FKA WORK PAUSED
+        8:02 PM 9/22/2019   FKA REFACTORED API TO HIDE KEY IN DB
+        8:34 PM 9/22/2019   FKA REFACTORING FAILED, REVERTED TO PREV
+        7:49 PM 9/23/2019   FKA BORROWED GOOGLEMAP.HTML FOR TEST IN ADDPINS
+    -->
+    <div class="container" id="appbody">
+        <div class="row" id="frame">
+            <div class="col-md-11" id="frame">
+                <div class="row" id="maindisplay">
+                    <div class="col-md-12" id="title">
+                        <h1>??? NEARBY</h1>
+                    </div>
+                </div>
+                
+                <div class="row" id="spacer1">
+                    <div class="col-md-12" id="spacer1">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row" id="maininfo">
+                    <div class="col-md-1" id="gutter">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-10" id="maparea">
+                        <iframe src="./googlemap.html" frameborder="0"></iframe>
+                    </div>
+                    <div class="col-md-1" id="gutter">
+                        &nbsp;
+                    </div>
+                </div>
+                
+                <div class="row" id="spacer2">
+                    <div class="col-md-12" id="spacer2">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row" id="outputandsearch">
+                    
+                        <div class="col-md-4" id="output">
+                            <div>
+                                <h3>NEARBY</h3>
+                            </div>
+                            <ol>
+                                <li id="nli1">Burger King</li>
+                                <li id="nli2">Taco Bell</li>
+                                <li id="nli3">McDonalds</li>
+                            </ol>
+                        </div>
+
+                        <div class="col-md-4" id="search">
+                            <div>
+                                <h3>FIND</h3>
+                            </div>
+                            <div>
+                                <ol>
+                                    <li>Food</li>
+                                    <li>Housing</li>
+                                    <li>Schools</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="col-md-4" id="search">
+                                <div>
+                                    <h3>SEARCH</h3>
+                                </div>
+                                <div>
+                                    <input type="text" name="" id="" value="location?"></input>
+                                    <input type="text" name="" id="" value="entity?"></input>
+                                    <br>
+                                    <input type="submit"></input>
+                                </div>
+                            </div>
+    
+                    </div>
+
+                <div class="row" id="spacer3">
+                    <div class="col-md-12" id="spacer3">
+                        &nbsp;
+                    </div>
+                </div>
+                        
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    $('#nli1').on('click',function(){
+        $('#spacer2').text("Burgers")
+        // add marker at burgerking lat lng
+    })
+    $('#nli2').on('click',function(){
+        $('#spacer2').text("face")
+        // add marker at burgerking lat lng
+    })
+    $('#nli3').on('click',function(){
+        $('#spacer2').text("Laserloop")
+        // add marker at burgerking lat lng
+    })
+    $('#nli4').on('click',function(){
+        $('#spacer2').text("Catnip")
+        // add marker at burgerking lat lng
+    })
+
+</script>
+</body>
+</html>

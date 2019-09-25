@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src ='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src ='https://www.gstatic.com/firebasejs/live/3.0/firebase.js'></script>
+    <script> src="https://momentjs.com/downloads/moment.js"</script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <script src= "addpins.js"></script>
+
+    <title>Add Pins</title>
+
+    <style>
+        div {
+            border: 1px solid black;
+            max-width: 100%;
+        }
+        #header ,#footer {
+            background-color:darkslategray;
+            color: white;
+            text-align: center;
+        }
+        .gray {
+            background-color: gray;
+        }
+        #inputs, #map {
+            background-color: lightblue;
+            text-align: center;
+        }
+        .center {
+            text-align:center;
+        }
+
+    </style>
+</head>
+<body>
+    <container class="mainbody">
+        <div class="row" id="header">
+            <div class="col-md-12" id="header">
+                <h1>
+                    Add Pins
+                </h1>
+            </div>
+        </div>
+
+        <div class="row" id="main">
+            <div class="col-md-3 gray">
+                &nbsp;
+                <p id="output1"></p>
+            </div>
+            <div class="col-md-3" id="inputs">
+                <p>Search Query</p>
+                <input type="text" name="" id="query" value="target">
+                <p>Search Location</p>
+                <input type="text" name="" id="location" value="richmond">
+                <p>Search Area</p>
+                <input type="text" name="" id="area" value="50">
+                <p></p>
+                <input type="button" id="submission" value="submit">
+            </div>
+            <div class="col-md-3" id="map">
+                <!--    -->
+            </div>
+            <div class="col-md-3 gray">
+                    &nbsp;
+                    <p id="output2"></p>
+                    
+            </div>
+        </div>
+
+        <div class="row" id="footer">
+            <div class="col-md-12" id="footer">
+                <h1>
+                    Add Pins
+                </h1>
+            </div>
+        </div>
+    </container>
+
+    <script src ='https://www.gstatic.com/firebasejs/live/3.0/firebase.js'></script>
+  
+    <script>
+    var key1 = "AIzaSyCbZB3_pes1Ise0Ild5KHBIR8nLW5KhzwA";
+    var key2 = "AIzaSyBP0yaCA8CWeahKZVjC3Utf8wgHXt-qp58";
+    var pos = {};
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: -25.344, lng: 131.036};
+  var richmond = {lat: 37.5407 , lng: -77.4360};
+  var currentloc = {lat: 37.5407 , lng: -77.4360};
+  // Devedit add var infowindow
+  var infoWindow=0;
+
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 10, center: richmond});
+  // The marker, positioned at Uluru
+  //var marker = new google.maps.Marker({position: currentloc, map: map});
+  
+    infoWindow = new google.maps.InfoWindow;
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+                };
+                $('#output1').text(`Current User: 
+                Lat: ${pos.lat} Lng: ${pos.lng} 
+                Richmond:
+                Lat: ${richmond.lat} Lng: ${richmond.lng}`)
+                $                
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Location found.');
+                infoWindow.open(map);
+                map.setCenter(pos);
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+            } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+            }
+        
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                                'Error: The Geolocation service failed.' :
+                                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
+}
+
+// Handle onclick
+    // test url
+    //  https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=mongolian%20grill&inputtype=textquery&fields=photos,formatted_address,name,opening_hours,rating&locationbias=circle:2000@47.6918452,-122.2226413&key=YOUR_API_KEY
+    $('#submission').on('click', function(){
+
+    //var marker = new google.maps.Marker({position: currentloc, map: map});
+    // Here we are building the URL we need to query the database
+    console.log(pos);
+    var queryURL ={
+            main:   "https://maps.googleapis.com/maps/api/place/nearbysearch/json",
+            loc:    "?location="+pos.lat+","+pos.lng,
+            rad:    "&radius="+$("#area").val(),
+            type:   "&types=food",
+            name:   "&name=harbour",
+            key:    key2,
+        };
+    
+    $.ajax({
+        /*
+        Access to XMLHttpRequest at 'XXX' from origin 'null' 
+        has been blocked by CORS policy: No 'Access-Control-Allow-Origin' 
+        header is present on the requested resource.
+        
+        Attempted to fix by adding [origin: Access-Control-Allow-Origin=true] 
+        and other variations into the queryURL, also tried creating a [HEAD" Access-Control-Allow-Origin]
+         before the url and get methods
+        */
+        headers:{ "Access-Control-Allow-Origin":"laser"}, // does nothing as of 9:20 PM 9/23/2019
+        url: queryURL.main+queryURL.loc+queryURL.rad+queryURL.type+queryURL.name+queryURL.key,
+        method: "GET",
+    }).then(function(response) {
+      console.log(response);
+    }); 
+        $('#output2').html(
+            '<iframe width="80%" type="text" src='+queryURL.main+queryURL.loc+queryURL.rad+queryURL.type+queryURL.name+queryURL.key+'/>'
+            /*
+            Tested iframe by hard coding into html, rejected:
+            Refused to display 'https://maps.googleapis.com/maps/api/place/nearbysearch/json' 
+            in a frame because it set 'X-Frame-Options' to 'sameorigin'.
+            AND >>
+            Resource interpreted as Document but transferred with MIME type application/json: 
+            "https://maps.googleapis.com/maps/api/place/nearbysearch/json".
+            AND Tried >>
+            JSON.stringify(queryURL.main+queryURL.loc+queryURL.rad+queryURL.type+queryURL.name+queryURL.key)
+
+            `<iframe src= 
+                https://maps.googleapis.com/maps/api/place/nearbysearch/json
+                ?location=${pos.lat,pos.lng}
+                &radius=500
+                &types=food
+                &name=harbour
+                &key=AIzaSyBP0yaCA8CWeahKZVjC3Utf8wgHXt-qp58>        
+            </iframe>  
+            `
+        */
+
+        )
+        
+        })
+    
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbZB3_pes1Ise0Ild5KHBIR8nLW5KhzwA&callback=initMap">
+    </script>
+
+</body>
+</html>
