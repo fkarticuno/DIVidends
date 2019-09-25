@@ -72,7 +72,7 @@ $('#uentrysubmit').on('click',function(){
             $('#submissionissues').text('You Used An Illegal Character, try again');
             } 
         else usersarray.push([unewname,unewpass]);
-        
+         
     };
     
 });
