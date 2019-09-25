@@ -10,7 +10,7 @@
     <script> src="https://momentjs.com/downloads/moment.js"</script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-    <script src= "addpins.js"></script>
+    <script src= "addpins.js" ></script>
 
     <title>Add Pins</title>
 
@@ -151,7 +151,7 @@ function initMap() {
             rad:    "&radius="+$("#area").val(),
             type:   "&types=food",
             name:   "&name=harbour",
-            key:    key2,
+            key:    "&key="+key2,
         };
     
     $.ajax({
@@ -164,8 +164,8 @@ function initMap() {
         and other variations into the queryURL, also tried creating a [HEAD" Access-Control-Allow-Origin]
          before the url and get methods
         */
-        headers:{ "Access-Control-Allow-Origin":"laser"}, // does nothing as of 9:20 PM 9/23/2019
-        url: queryURL.main+queryURL.loc+queryURL.rad+queryURL.type+queryURL.name+queryURL.key,
+        header: { "Access-Control-Allow-Origin": "zamboni"}, // does nothing as of 9:20 PM 9/23/2019
+        url: queryURL.main+queryURL.loc+queryURL.rad+queryURL.type+queryURL.name+queryURL.key+"&format=json",
         method: "GET",
     }).then(function(response) {
       console.log(response);
