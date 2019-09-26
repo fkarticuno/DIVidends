@@ -9,3 +9,5 @@
     Attempted to integrate Places API https://developers.google.com/places/web-service/intro
         Issues tracked @ addpins.html lines 160-168 + lines 177-196
     Initaial concern of adding map pins to map has not yet been explored
+8:42 PM 9/25/2019   FKA WORK CATCHUP
+    changed branch to master, did a git pull, 'lost' my work, recovered it with luck attempted to merge
