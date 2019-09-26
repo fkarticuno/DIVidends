@@ -93,7 +93,13 @@ $('#uentrysubmit').on('click',function() {
             if (match==0) {
                 usersarray.push([unewname,unewpass]);
                 console.log(`User: ${unewname} added.`)
-                 
+                database.ref().push({
+                    user:{
+                        name:unewname,
+                        pass:unewpass,
+                        dateAdded: firebase.database.ServerValue.TIMESTAMP,
+                    }
+                })
                 unewname, unewpass = '', '';
                 window.location.href = './login.html'
             } else {
