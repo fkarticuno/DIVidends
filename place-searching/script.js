@@ -6,7 +6,7 @@ var housingarray = ["1 story house for sale","2 story house for sale","3 story h
 var schoolarray = ["elementary school","middle school", "high school", "college", "university", "trade school"]
 var rand = 0;
 var placeholder = 0;
-var searchBox = 0;
+
 
 //  BUILDS RANDOM NUMBER TO SELECT ITEM FROM ARRAY (EX https://www.w3schools.com/js/js_random.asp)
 
@@ -62,7 +62,7 @@ $('#schools').on('click',function(){
     Cannot read property 'activeElement' of undefined
     at Object.v$.i (places_impl.js:78)
     at js?key=[redacted]&callback=createMap&libraries=places:27
-  */
+  
 $('#nli1').on('click', function() {
   placeholder = $('#nli1').val()
   searchBox = new google.maps.places.SearchBox(placeholder);
@@ -73,6 +73,7 @@ $('#nli2').on('click', function() {
 $('#nli3').on('click', function() {
   searchBox = new google.maps.places.SearchBox($('#nli3').val());    
 })
+*/
 //  MODDED CODE
 // =======================================================
 
