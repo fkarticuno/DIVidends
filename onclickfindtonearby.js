@@ -3,7 +3,7 @@ var houseingarray = ["2story","3story","4story"]
 var rand = 0;
 $("#fli1").on('click',function() {
   function rando(){
-    rand = Math.random(floor(foodarry.length)*1)
+    rand = Math.floor(Math.random() * foodarray.length);
     return rand;
   }
     for (var i = 1; i < 3; i++) {
