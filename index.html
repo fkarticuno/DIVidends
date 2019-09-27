@@ -105,9 +105,9 @@
                             </div>
                             <div>
                                 <ol>
-                                    <li>Food</li>
-                                    <li>Housing</li>
-                                    <li>Schools</li>
+                                    <li id="food">Food</li>
+                                    <li id="housing">Housing</li>
+                                    <li id="schools">Schools</li>
                                 </ol>
                             </div>
                         </div>
@@ -176,7 +176,7 @@
 <script>
     $('#nli1').on('click',function(){
         $('#spacer2').text("Burgers")
-        // add marker at burgerking lat lng
+        // add marker at burgerking lat lng throught the google api 
     })
     $('#nli2').on('click',function(){
         $('#spacer2').text("face")
@@ -189,6 +189,26 @@
     $('#nli4').on('click',function(){
         $('#spacer2').text("Catnip")
         // add marker at burgerking lat lng
+    })
+
+
+    $('#food').on('click',function(){
+        $('#nli1').text("firstfoodplace") //change this to the food array
+        $('#nli2').text("secondfoodplace") //change this to the food array
+        $('#nli3').text("thirdplace") //change this to the food array
+        // will populate list of categories from food array then after click will populate search results from api 
+    })
+    $('#housing').on('click',function(){
+        $('#nli1').text("firsthouse")
+        $('#nli2').text("secondhouse")
+        $('#nli3').text("thirdhouse")
+        // add markers at lat long 
+    })
+    $('#schools').on('click',function(){
+        $('#nli1').text("firstschool")
+        $('#nli2').text("secondschool")
+        $('#nli3').text("thirdschool")
+        // 
     })
 
 </script>
