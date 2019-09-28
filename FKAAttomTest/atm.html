@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+      <title>Ilan's Test</title>
+   </head>
+   <body>
+
+   <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="results">
+
+                </div>
+            </div>
+         </div>
+   </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+      <script>
+// Documentation Found Here
+// https://www.yelp.com/developers/documentation/v3/business
+    var myurl = "https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/detail?postalcode=23834";
+    //address1=4529%20Winona%20Court&address2=Denver%2C%20CO";
+
+// =====================
+
+// OkHttpClient client = new OkHttpClient(); 
+
+// Request request = new Request.Builder() 
+//   .url("https://api.gateway.attomdata.com/propertyapi/v1.0.0/
+//   property/detail?address1=4529%20Winona%20Court&address2=
+//   Denver%2C%20CO")
+//   .get() 
+//   .addHeader("accept", "application/json") 
+//   .addHeader("apikey", "") 
+
+//   .build(); 
+
+// Response response = client.newCall(request).execute();
+// =====================
+
+         $.ajax({
+            url: myurl,
+            headers: {
+            "accept": "application/json",
+            'apikey':'3aa89d8842065dc09e6c55f752ca06cf',
+         },
+            method: 'GET',
+            dataType: 'json',
+            success: function(data){
+                // Grab the results from the API JSON return
+
+console.log(data);
+Object.keys(data.porperty[0].forEach(function(key,index) {
+    // key: the name of the object key
+    // index: the ordinal position of the key within the object 
+    $('#results').append(key, index)
+}));
+
+$('#results').append('<div>'+ data.property[0].address.line1 +'</div>')
+// If our results are greater than 0, continue
+
+}
+});      
+//address: {country: "US", countrySubd: "CO", line1: "4529 WINONA CT", line2: "DENVER, CO 80212", locality: "Denver", …}
+</script>
+</body>
+</html>
+<!--
+database.ref().on("value", function(snapshot){
+    example = snapshot.val().example;
+    $('#example').text().html(snapshot.val().example)
+})
+-->
