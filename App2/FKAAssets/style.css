@@ -2,7 +2,7 @@
 
 div {
     border: 1px solid black;
-    background-color: #b666d2;
+    background-color: orange;
     text-align: center;
     margin: auto;
 }
@@ -27,6 +27,7 @@ h3 {
     animation-iteration-count: infinite;
 }
 
+
 /* Media Query For Mobile */
 @media screen and (max-width: 500px) {  
     #spacer, #gutter  {
@@ -36,7 +37,7 @@ h3 {
         height: 750px;
     }
     body {
-        background-color: #b666d2;
+        background-color: orange;
     }
 }
 
