@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <title>Document</title>
+</head>
+<body>
+    <h1>Check the console for the MAGIC!!!</h1>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script>
+ 
+$(document).ready(function(){ 
+    
+    var settings = {
+  "async": true,
+  "crossDomain": false,
+  "url": "https://api.yelp.com/v3/businesses/search?term=burgers&location=richmond-va",
+  "method": "GET",
+  "headers": {
+    "Authorization": "Bearer ukUKiQxz9vKifB3EAKTsxl-v3fuo3HVmbOx-_UmqsUgaufleOi3F0ls0XNgD3MRPYmB1GsN4gLf0Pi80zaCw11Kr5G_7ETQK-m1ZoqMcUuqnoJ4j_cipX92ANCyOXXYx",
+    "User-Agent": "PostmanRuntime/7.16.3",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "3e909615-b477-4e7f-b3aa-5761d5dbb91b,b16f8630-d7fe-4cd6-b34d-5ab99b85ed1c",
+    "Host": "api.yelp.com",
+    "Accept-Encoding": "gzip, deflate",
+    "Connection": "keep-alive",
+    "cache-control": "no-cache"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+});
+    </script>
+</body>
+</html>
