@@ -1,3 +1,5 @@
+
+
 div {
     border: 1px solid black;
     background-color: #b666d2;
@@ -17,6 +19,12 @@ iframe {
 }
 #gutter {
     height: 480px;
+}
+
+h3 {
+    animation-duration: 5s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
 }
 
 /* Media Query For Mobile */

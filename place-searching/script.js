@@ -1,4 +1,7 @@
 // Addon scripts
+$("h3").on("click", function() {
+  $("h3").addClass("animated shake");
+});
 
 // EACH ARRAY HAS 6 ITEMS TO ITERATE THROUGH
 var foodarray = ["burger king","taco bell","mcdonalds","arbys","sushi king"]
