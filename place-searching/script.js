@@ -129,26 +129,11 @@ $(document).on('click', ".schoolChoice", function() {
           }); 
     };
 
-    function homeSearch(searchParameter){
-            var myurl = "https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/detail?postalcode=23834&propertytype="+ searchParameter;
-            //address1=4529%20Winona%20Court&address2=Denver%2C%20CO";
+    function homeSearch(searchParam){
 
-        // =====================
-
-        // OkHttpClient client = new OkHttpClient(); 
-
-        // Request request = new Request.Builder() 
-        //   .url("https://api.gateway.attomdata.com/propertyapi/v1.0.0/
-        //   property/detail?address1=4529%20Winona%20Court&address2=
-        //   Denver%2C%20CO")
-        //   .get() 
-        //   .addHeader("accept", "application/json") 
-        //   .addHeader("apikey", "") 
-
-        //   .build(); 
-
-        // Response response = client.newCall(request).execute();
-        // =====================
+            var myurl = "https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/snapshot?cityname=richmond&propertytype=" + searchParam;
+        //     //https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/detail?postalcode=23834&propertytype="
+        //     //address1=4529%20Winona%20Court&address2=Denver%2C%20CO";
 
                 $.ajax({
                     url: myurl,
@@ -159,17 +144,17 @@ $(document).on('click', ".schoolChoice", function() {
                     method: 'GET',
                     dataType: 'json',
                     success: function(data){
-                        // Grab the results from the API JSON return
+        //                 // Grab the results from the API JSON return
 
         console.log(data);
         Object.keys(data.porperty[0].forEach(function(key,index) {
-            // key: the name of the object key
-            // index: the ordinal position of the key within the object 
+        //     // key: the name of the object key
+        //     // index: the ordinal position of the key within the object 
             $('#results').prepend(key, index)
         }));
 
         $('#results').prepend('<div>'+ data.property[0].address.line1 +'</div>')
-        // If our results are greater than 0, continue
+        // // If our results are greater than 0, continue
 
         }
         });      
