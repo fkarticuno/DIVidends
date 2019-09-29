@@ -7,7 +7,7 @@ $("h3").on("click", function() {
 // EACH ARRAY HAS 6 ITEMS TO ITERATE THROUGH
 var foodarray = ["burger king","taco bell","mcdonalds","arbys","sushi king"]
 var housingarray1 = ["1 story house for sale","2 story house for sale","3 story house for sale","4 story house for sale","apartments for rent","condominiums for rent"]
-var housingarray = ["1 story house","2 story house","3 story house","4 story house","apartments","condominiums"]
+var housingarray = ["detachedsinglefamily","duplex","apartment","condominium"]
 var schoolarray = ["elementary school","middle school", "high school", "college", "university", "trade school"]
 var rand = 0;
 var placeholder;
@@ -79,7 +79,7 @@ $(document).on('click', ".homeChoice", function() {
 
 $(document).on('click', ".schoolChoice", function() {
   var schoolTerm = $(this).attr("value");
-  console.log("School search: ", Term);
+  console.log("School search: ", schoolTerm);
   foodSearch(schoolTerm)
 });
 
@@ -129,9 +129,11 @@ $(document).on('click', ".schoolChoice", function() {
           }); 
     };
 
-    function homeSearch(searchParam){
+    
 
-            var myurl = "https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/snapshot?cityname=richmond&propertytype=" + searchParam;
+    function homeSearch(x){
+
+            var myurl = "https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/snapshot?cityname=richmond&propertytype="+x
         //     //https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/detail?postalcode=23834&propertytype="
         //     //address1=4529%20Winona%20Court&address2=Denver%2C%20CO";
 
@@ -143,21 +145,29 @@ $(document).on('click', ".schoolChoice", function() {
                 },
                     method: 'GET',
                     dataType: 'json',
-                    success: function(data){
+                    success: function(response){
         //                 // Grab the results from the API JSON return
+            var houseResults = response.property
+            console.log(houseResults);
+        
 
-        console.log(data);
-        Object.keys(data.porperty[0].forEach(function(key,index) {
-        //     // key: the name of the object key
-        //     // index: the ordinal position of the key within the object 
-            $('#results').prepend(key, index)
-        }));
+              for (var i = 0; i > houseResults.length; i++) {
+                var address = houseResults[i].address.line1;
+                // var addressDiv = $('<div>');
+                // $(addressDiv).html(address);
+                // $('#results').prepend(addressDiv);
+              
+              // Object.keys(response.property[0].forEach(function(key,index) {
+              // //     // key: the name of the object key
+              // //     // index: the ordinal position of the key within the object 
+              //     $('#results').prepend(key, index)
+              // }));
 
-        $('#results').prepend('<div>'+ data.property[0].address.line1 +'</div>')
-        // // If our results are greater than 0, continue
-
+              $('#results').prepend('<div>'+ houseResults[0].address.line1 +'</div>')
+              // // // If our results are greater than 0, continue
+            }
         }
-        });      
+      });      
 };
 //  MODDED CODE does not work as intended, see error:
   /*
