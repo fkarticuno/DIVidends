@@ -1,0 +1,98 @@
+
+
+div {
+    border: 1px solid black;
+    background-color: orange;
+    text-align: center;
+    margin: auto;
+}
+iframe {
+    height: 472px;
+    width: 100%;
+    padding: 0px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+.row {
+    border: 1px solid black;
+    background-color: powderblue;
+}
+#gutter {
+    height: 480px;
+}
+
+h3 {
+    animation-duration: 5s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+}
+
+
+/* Media Query For Mobile */
+@media screen and (max-width: 500px) {  
+    #spacer, #gutter  {
+        display: none;
+    }
+    iframe {
+        height: 750px;
+    }
+    body {
+        background-color: orange;
+    }
+}
+
+/*
+@media screen and (max-width: 980px) {  
+    section, .header_main {
+        width: 700px;
+        margin: auto;
+    }
+    .links {
+        font-size: 25px;
+    }
+    p {
+        font-size: 100%;
+    
+    }
+}
+
+@media screen and (max-width: 768px) {  
+    section, .header_main  {
+        width: 600px;
+        margin: auto;
+    }
+    .links {
+        font-size: 20px;
+    }
+    p {
+        font-size: 90%;
+    }
+    img {
+        height: 30%;
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 640px) {  
+    section, .header_main  {
+        width: 400px;
+        margin: auto;
+    }
+    .links{
+        font-size: 15px;
+    }
+    p {
+        font-size: 80%;
+    }
+    img {
+        height: 30%;
+        width: 30%;
+    }
+}
+
+/*
+Make the layout match the following screenshots:
+index.html: 980px, 768px, 640px
+portfolio.html: 980px, 768px, 640px
+contact.html: 980px, 768px, 640px
+*/

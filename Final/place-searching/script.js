@@ -1,4 +1,3 @@
-$(document).ready(function(){});
 // Addon scripts
 $("h3").on("click", function() {
   $("h3").addClass("animated shake");
@@ -9,7 +8,7 @@ var foodarray = ["burger king","taco bell","mcdonalds","arbys","sushi king"]
 var housingarray = ["1 story house for sale","2 story house for sale","3 story house for sale","4 story house for sale","apartements for rent","condominiums for rent"]
 var schoolarray = ["elementary school","middle school", "high school", "college", "university", "trade school"]
 var rand = 0;
-var placeholder;
+var placeholder = 0;
 
 
 //  BUILDS RANDOM NUMBER TO SELECT ITEM FROM ARRAY (EX https://www.w3schools.com/js/js_random.asp)
@@ -24,8 +23,7 @@ $('#food').on('click',function(){
     placeholder = foodarray[rando()]
     $("#nli"+i)
     .text(placeholder)
-    .attr('value', placeholder)
-    .attr('class', 'list-group-item foodChoice')
+    .val(placeholder)
     }
     $('#icon').html(`<img class="icon" src="https://rlv.zcache.com/restaurant_highway_sign-r8a257db3662c455e812864bee342d968_i13_8byvr_540.jpg"/>`)
     //  $('#nli1').text("firstfoodplace") //change this to the food array
@@ -60,58 +58,6 @@ $('#schools').on('click',function(){
     // $('#nli2').text("secondschool")
     // $('#nli3').text("thirdschool") 
 })
-
-$(document).on('click', ".foodChoice", function() {
-  var foodTerm = $(this).attr("value");
-  console.log(foodTerm);
-  search(foodTerm)
-});
-
-    function search(searchParameter){
-
-          var myurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?&term=" + searchParameter + "&location=richmond";
-      
-          $.ajax({
-            url: myurl,
-            headers: {
-              'Authorization':'Bearer 2lov69gUldxfBjwyuo57Py6pq-S8K1unfqBh9pBqHgg0h_BESErErf5x-wZpnbRx9EOVqdEyd-0Ru6ElqplGFdnrkwxHhFWKPp8AoS4rrU5lOPE7bRtBprZ4bHaPXXYx',
-          },
-            method: 'GET',
-            dataType: 'json',
-          
-                success: function(data){
-                    // Grab the results from the API JSON return
-              var totalresults = data.total;
-              // If our results are greater than 0, continue
-              if (totalresults > 0){
-              // Display a header on the page with the number of results
-              $('#results').append('<h5>We discovered ' + totalresults + ' results!</h5>');
-              // Itirate through the JSON array of 'businesses' which was returned by the API
-              $.each(data.businesses, function(i, item) {
-              // Store each business's object in a variable
-              var id = item.id;
-              var alias = item.alias;
-              var phone = item.display_phone;
-              var image = item.image_url;
-              var name = item.name;
-              var rating = item.rating;
-              var reviewcount = item.review_count;
-              var address = item.location.address1;
-              var city = item.location.city;
-              var state = item.location.state;
-              var zipcode = item.location.zip_code;
-              var price = item.price;
-              var coord = item.coordinates.latitude+ ' : '+item.coordinates.longitude
-              // Append our result into our page
-              $('#results').append('<div id="' + id + '" style="margin-top:50px;margin-bottom:50px;"><img src="' + image + '" style="width:200px;height:150px;"><br>We found <b>' + name + '</b> (' + alias + ')<br>Business ID: ' + id + '<br> Located at: ' + address + ' ' + city + ', ' + state + ' ' + zipcode + '<br>The phone number for this business is: ' + phone + '<br>This business has a rating of ' + rating + ' with ' + reviewcount + ' reviews. ' + '<br>Price ' + price + '<br>' + coord +'</div>');
-              });
-              } else {
-              // If our results are 0; no businesses were returned by the JSON therefor we display on the page no results were found
-              $('#results').append('<h5>We discovered no results!</h5>');
-              }
-              }
-          }); 
-    };
 
 //  MODDED CODE does not work as intended, see error:
   /*
