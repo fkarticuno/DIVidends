@@ -152,10 +152,10 @@ $(document).on('click', ".schoolChoice", function() {
         
 
               for (var i = 0; i > houseResults.length; i++) {
-                var address = houseResults[i].address.line1;
-                // var addressDiv = $('<div>');
-                // $(addressDiv).html(address);
-                // $('#results').prepend(addressDiv);
+                var houseAddress = houseResults[i].address;
+                var addressDiv = $('<div>');
+                $(addressDiv).text(houseAddress);
+                $('#results').prepend(addressDiv);
               
               // Object.keys(response.property[0].forEach(function(key,index) {
               // //     // key: the name of the object key
@@ -163,7 +163,7 @@ $(document).on('click', ".schoolChoice", function() {
               //     $('#results').prepend(key, index)
               // }));
 
-              $('#results').prepend('<div>'+ houseResults[0].address.line1 +'</div>')
+              // $('#results').prepend('<div>'+ addresss +'</div>')
               // // // If our results are greater than 0, continue
             }
         }
