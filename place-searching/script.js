@@ -6,7 +6,8 @@ $("h3").on("click", function() {
 
 // EACH ARRAY HAS 6 ITEMS TO ITERATE THROUGH
 var foodarray = ["burger king","taco bell","mcdonalds","arbys","sushi king"]
-var housingarray = ["1 story house for sale","2 story house for sale","3 story house for sale","4 story house for sale","apartements for rent","condominiums for rent"]
+var housingarray1 = ["1 story house for sale","2 story house for sale","3 story house for sale","4 story house for sale","apartments for rent","condominiums for rent"]
+var housingarray = ["1 story house","2 story house","3 story house","4 story house","apartments","condominiums"]
 var schoolarray = ["elementary school","middle school", "high school", "college", "university", "trade school"]
 var rand = 0;
 var placeholder;
@@ -39,7 +40,8 @@ $('#housing').on('click',function(){
     placeholder = housingarray[rando()]
     $("#nli"+i)
     .text(placeholder)
-    .val(placeholder)
+    .attr('value', placeholder)
+    .attr('class', 'list-group-item homeChoice')
     }
     $('#icon').html(`<img class="icon" src="../project/forsale.png"/>`)
     // $('#nli1').text("firsthouse")
@@ -53,7 +55,8 @@ $('#schools').on('click',function(){
     placeholder = schoolarray[rando()]
     $("#nli"+i)
     .text(placeholder)
-    .val(placeholder)
+    .attr('value', placeholder)
+    .attr('class', 'list-group-item schoolChoice')
     }
     $('#icon').html(`<img class="icon" src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX7260587.jpg"/>`)
     // $('#nli1').text("firstschool")
@@ -61,13 +64,26 @@ $('#schools').on('click',function(){
     // $('#nli3').text("thirdschool") 
 })
 
+//nearby section click events
 $(document).on('click', ".foodChoice", function() {
   var foodTerm = $(this).attr("value");
-  console.log(foodTerm);
-  search(foodTerm)
+  console.log("Food search: ", foodTerm);
+  foodSearch(foodTerm)
 });
 
-    function search(searchParameter){
+$(document).on('click', ".homeChoice", function() {
+  var homeTerm = $(this).attr("value");
+  console.log("Home search: ", homeTerm);
+  homeSearch(homeTerm)
+});
+
+$(document).on('click', ".schoolChoice", function() {
+  var schoolTerm = $(this).attr("value");
+  console.log("School search: ", Term);
+  foodSearch(schoolTerm)
+});
+
+    function foodSearch(searchParameter){
 
           var myurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?&term=" + searchParameter + "&location=richmond";
       
@@ -113,6 +129,51 @@ $(document).on('click', ".foodChoice", function() {
           }); 
     };
 
+    function homeSearch(searchParameter){
+            var myurl = "https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/detail?postalcode=23834&propertytype="+ searchParameter;
+            //address1=4529%20Winona%20Court&address2=Denver%2C%20CO";
+
+        // =====================
+
+        // OkHttpClient client = new OkHttpClient(); 
+
+        // Request request = new Request.Builder() 
+        //   .url("https://api.gateway.attomdata.com/propertyapi/v1.0.0/
+        //   property/detail?address1=4529%20Winona%20Court&address2=
+        //   Denver%2C%20CO")
+        //   .get() 
+        //   .addHeader("accept", "application/json") 
+        //   .addHeader("apikey", "") 
+
+        //   .build(); 
+
+        // Response response = client.newCall(request).execute();
+        // =====================
+
+                $.ajax({
+                    url: myurl,
+                    headers: {
+                    "accept": "application/json",
+                    'apikey':'3aa89d8842065dc09e6c55f752ca06cf',
+                },
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(data){
+                        // Grab the results from the API JSON return
+
+        console.log(data);
+        Object.keys(data.porperty[0].forEach(function(key,index) {
+            // key: the name of the object key
+            // index: the ordinal position of the key within the object 
+            $('#results').prepend(key, index)
+        }));
+
+        $('#results').prepend('<div>'+ data.property[0].address.line1 +'</div>')
+        // If our results are greater than 0, continue
+
+        }
+        });      
+};
 //  MODDED CODE does not work as intended, see error:
   /*
     places_impl.js:78 Uncaught (in promise) TypeError: 
