@@ -1,0 +1,22 @@
+#map {
+  height: 290px;
+  width: 100%;
+  border-radius: 20px;
+}
+div.bg {
+  background-color: #f7cdab;
+}
+.icon {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+}
+
+.list-group-item {
+  background-color: #e29458;
+}
+/*
+Main Page 
+ >
+
+ */
