@@ -4,12 +4,16 @@
   border-radius: 20px;
 }
 div.bg {
-  background-color: #b666d2;
+  background-color: #f7cdab;
 }
 .icon {
   height: 100px;
   width: 100px;
   margin: auto;
+}
+
+.list-group-item {
+  background-color: #e29458;
 }
 /*
 Main Page 
