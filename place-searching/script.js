@@ -160,21 +160,21 @@ $(document).on('click', ".schoolChoice", function() {
             console.log(houseResults);
         
 
-              for (var i = 0; i > houseResults.length; i++) {
-                var houseAddress = houseResults[i].address;
-                var addressDiv = $('<div>');
-                $(addressDiv).text(houseAddress);
-                $('#results').prepend(addressDiv);
+            //   for (var i = 0; i < houseResults.length; i++) {
+            //     var houseAddress = houseResults[i].address;
+            //     var addressDiv = $('<div>');
+            //     addressDiv.text(houseAddress);
+            //     $('#results').prepend(addressDiv);
               
-              // Object.keys(response.property[0].forEach(function(key,index) {
-              // //     // key: the name of the object key
-              // //     // index: the ordinal position of the key within the object 
-              //     $('#results').prepend(key, index)
-              // }));
+            //   // Object.keys(response.property[0].forEach(function(key,index) {
+            //   // //     // key: the name of the object key
+            //   // //     // index: the ordinal position of the key within the object 
+            //   //     $('#results').prepend(key, index)
+            //   // }));
 
-              // $('#results').prepend('<div>'+ addresss +'</div>')
-              // // // If our results are greater than 0, continue
-            }
+            //   // $('#results').prepend('<div>'+ addresss +'</div>')
+            //   // // // If our results are greater than 0, continue
+            // }
         }
       });      
 };
