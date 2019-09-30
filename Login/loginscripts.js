@@ -36,7 +36,16 @@ var uattemptpass = '';                  //  TRACKS UPASS INPUT FOR LOGIN
 var unewname = '';                      //  TRACKS UNEWNAME INPUT FOR SIGNUP
 var unewpass = '';                      //  TRACKS UNEWPASS INPUT FOR SIGNUP
 var match = 0;                          //  TRACKS MATCHES WITH PREVIOUS UNEWNAME ENTRIES
+var user, name, pass;
 var usersarray = [['admin','pass'],];   //  STORES USERS AND PASSWORDS IN ARRAY
+
+    database.ref().on("child_added", function(snapshot){
+        usersarray.push([snapshot.val().user.name,snapshot.val().user.pass])
+        console.log('doing the thing')
+        console.log('usersarray: ', usersarray)
+    })
+    
+
 //=======================================================================
 //  WHEN USERS SUBMIT (IN)VALID USERNAME + PASSWORD
 $('#ucredsubmit').on('click',function(){
@@ -56,7 +65,7 @@ $('#ucredsubmit').on('click',function(){
             if (uattemptpass==usersarray[i][1]) {
                 console.log('Passed Verification')
                 //  GO TO MAIN PAGE
-                window.location.href = '../index.html'
+                window.location.href = '../place-searching/InteractiveMap.html'
             }
         } else {
             console.log("failed Verification")
@@ -77,8 +86,8 @@ $('#uentrysubmit').on('click',function() {
     //  CLEAR INPUT FIELDS
     $('#unameentry').val('')
     $('#upassentry').val('')
-    //  VERIFY USERNAME AND PASSWORD LENGTH > 6
-    if (unewname.length>5 || unewpass.length>5) {
+    //  VERIFY USERNAME AND PASSWORD LENGTH >= 6
+    if (unewname.length>5 && unewpass.length>5) {
         //  CHECK FOR ILLEGAL CHARACTERS
         if (!unewname.includes('<'||'>'||'!'||'$'||'{'||'}')) {
             // CHECK USERSARRAY FOR REUSED USERNAME
@@ -94,7 +103,7 @@ $('#uentrysubmit').on('click',function() {
                 usersarray.push([unewname,unewpass]);
                 console.log(`User: ${unewname} added.`)
                 database.ref().push({
-                    user:{
+                    user: {
                         name:unewname,
                         pass:unewpass,
                         dateAdded: firebase.database.ServerValue.TIMESTAMP,

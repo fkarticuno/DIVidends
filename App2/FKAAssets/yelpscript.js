@@ -13,7 +13,7 @@ $('.nearby').on('click',function() {
     console.log(`${lookup} was clicked`)
     console.log($(this).attr("data"))
 $.ajax({
-   url: `${myurl}&term=${lookup}&lo tion=richmond`,
+   url: `${myurl}&term=${lookup}&location=richmond`,
    headers: {
     'Authorization':'Bearer 2lov69gUldxfBjwyuo57Py6pq-S8K1unfqBh9pBqHgg0h_BESErErf5x-wZpnbRx9EOVqdEyd-0Ru6ElqplGFdnrkwxHhFWKPp8AoS4rrU5lOPE7bRtBprZ4bHaPXXYx',
 },
