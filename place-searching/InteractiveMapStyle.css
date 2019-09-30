@@ -7,14 +7,22 @@ div.bg {
   background-color: #f7cdab;
 }
 .icon {
+  height: 145px;
+  width: 100px;
+  margin: 5px 0px 0px 0px;
+  border-radius: 2px;
+  padding-left: 10px;
+}
+#iconimage {
   height: 100px;
   width: 100px;
-  margin: auto;
+  padding-top: 10px; 
+  padding-left: 10px;
 }
-
-.list-group-item {
+.list-group-item, #icon {
   background-color: #e29458;
 }
+
 /*
 Main Page 
  >
