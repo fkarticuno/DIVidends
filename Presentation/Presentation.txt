@@ -1,0 +1,66 @@
+DIVIdends Presents:
+My Block
+
+By:
+Aaron McKoy 
+Frederick Articuno
+Leticia
+Ronald Gillison
+
+My Block: Logging In
+Here you enter your username and password to get started.
+
+My Block: Signing Up
+Oh, you don’t already have a valid username and password? 
+Well sign up!
+
+My Block: Swiper, No Swiping
+During Signup, to prevent injection attacks, special characters like:
+ < > | $ [ ]
+are prevented. Plus for security all usernames and passwords must be 6+ characters long. 
+
+Login info is stored in my database for persistence and will help to build user suggestions in the future.
+
+Please use your full name and SSN for maximum security.
+
+My Block: Your Map
+You’ll land on this page, powered by:
+GoogleMaps API
+Yelp Fusion API
+Attom API
+CSS animations
+Bootstrap
+JQuery
+
+My Block: Make A Selection
+Click:
+Food | Housing | Schools
+To find ‘nearby’ places like McDonalds.
+
+
+My Block: Quick Info
+The far right area will show all kinds of information powered by Yelp fusion like
+Location
+Phone #
+Rating
+Lat-Lng
+
+
+My Block: Specific Selection
+Are you looking for something a little more specific?
+Just type in your query and let google do the work for you!
+
+
+My Block: Mobile
+Are you on a mobile device?
+My Block is loaded with size responsive code to make the mobile experience just as responsive and immersive as a desktop experience.
+
+My Block: Questions?
+My Block
+
+By:
+Aaron McKoy 
+Frederick Articuno
+Leticia
+Ronald Gillison
+

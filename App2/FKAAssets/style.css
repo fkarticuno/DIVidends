@@ -4,12 +4,15 @@ div {
     text-align: center;
     margin: auto;
 }
+body {
+    background-color: powderblue;
+}
 iframe {
     height: 550px;
     width: 100%;
     padding: 0px;
     margin: 0 auto;
-    overflow-x: hidden;
+    overflow-y: hidden;
 }
 .row {
     border: 1px solid black;
@@ -37,6 +40,7 @@ h3 {
     body {
         background-color: orange;
     }
+
 }
 
 /*
