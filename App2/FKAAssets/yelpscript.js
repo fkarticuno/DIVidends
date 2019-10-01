@@ -5,7 +5,7 @@
 
 var myurl = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?`;
 var lookup = 0;
-var id, alias, phone, image, name, rating, reviewcount, address, city, zipcode, price, coord;
+var id, alias, phone, image, name, rating, reviewcount, address, city, zipcode, price
 
 $('.nearby').on('click',function() {
     if ($(this).attr("data")=="Food") {
@@ -43,9 +43,14 @@ city = data.businesses[0].location.city;
 state = data.businesses[0].location.state;
 zipcode = data.businesses[0].location.zip_code;
 price = data.businesses[0].price;
-coord = data.businesses[0].coordinates.latitude+ ' : '+data.businesses[0].coordinates.longitude
+coord = data.businesses[0].coordinates.latitude+ '  '+data.businesses[0].coordinates.longitude
 // Append our result into our page
 $('#icon').html(`<div> ${name} <br> ${phone} <br> ${address} </div>`)
+// Start Search with map
+console.log(coord);
+
+  
+//.$('#search').Text(coord);
 //});
 } else {
 // If our results are 0; no businesses were returned by the JSON therefor we display on the page no results were found
@@ -57,3 +62,5 @@ $('#icon').append('<h5>We discovered no results!</h5>');
 };
 
 });
+
+

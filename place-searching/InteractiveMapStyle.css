@@ -22,7 +22,10 @@ div.bg {
 .list-group-item, #icon {
   background-color: #e29458;
 }
-
+.hidden {
+  position: fixed;
+  visibility: visible;
+}
 /*
 Main Page 
  >

@@ -6,21 +6,21 @@ $("h3").on("click", function() {
 // EACH ARRAY HAS 6 ITEMS TO ITERATE THROUGH
 var foodarray = ["Burger King","Taco Bell","Mcdonalds","Arbys","Sushi King"]
 var housingarray = ["1 Story House For Sale","2 Story House For Sale","3 Story House For Sale","4 Story House For Sale","apartements for rent","condominiums for rent"]
-var Schoolarray = ["Elementary School","Middle School", "High School", "College", "University", "Trade School"]
+var schoolarray = ["Elementary School","Middle School", "High School", "College", "University", "Trade School"]
 var rand = 0;
 var placeholder = 0;
-
+var coord =0;
 
 //  BUILDS RANDOM NUMBER TO SELECT ITEM FROM ARRAY (EX https://www.w3Schools.com/js/js_random.asp)
 
-function rando(){
-    rand = Math.floor(Math.random() * 7);
+function rando(x){
+    rand = Math.floor(Math.random() * x);
     return rand;
   }
 
 $('#food').on('click',function(){
     for (var i = 1; i < 4; i++) {
-    placeholder = foodarray[rando()]
+    placeholder = foodarray[rando(foodarray.length)]
     $("#nli"+i)
     .text(placeholder)
     .attr("data","Food")
@@ -34,7 +34,7 @@ $('#food').on('click',function(){
 
 $('#housing').on('click',function(){
     for (var i = 1; i < 4; i++) {
-    placeholder = housingarray[rando()]
+    placeholder = housingarray[rando(housingarray.length)]
     $("#nli"+i)
     .text(placeholder)
     .attr("data","Housing")
@@ -48,7 +48,7 @@ $('#housing').on('click',function(){
 
 $('#schools').on('click',function(){
     for (var i = 1; i < 4; i++) {
-    placeholder = Schoolarray[rando()]
+    placeholder = schoolarray[rando(schoolarray.length)]
     $("#nli"+i)
     .text(placeholder)
     .attr("data","School")
@@ -119,3 +119,4 @@ function createMap () {
 
 //==============================================
 
+$('#search').text('coord')
