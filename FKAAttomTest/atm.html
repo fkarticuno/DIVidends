@@ -58,10 +58,10 @@ console.log(data);
 Object.keys(data.porperty[0].forEach(function(key,index) {
     // key: the name of the object key
     // index: the ordinal position of the key within the object 
-    $('#results').append(key, index)
+    $('#results').prepend(key, index)
 }));
 
-$('#results').append('<div>'+ data.property[0].address.line1 +'</div>')
+$('#results').prepend('<div>'+ data.property[0].address.line1 +'</div>')
 // If our results are greater than 0, continue
 
 }

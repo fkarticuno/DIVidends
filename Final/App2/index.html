@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src ='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src ='https://www.gstatic.com/firebasejs/live/3.0/firebase.js'></script>
+    <script> src="https://momentjs.com/downloads/moment.js"</script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./FKAAssets/style.css"></link>
+    <script src="./FKAAssets/app.js"></script>
+    
+    <title>My Block</title>
+</head>
+<body>
+    <!--
+        2:56 PM 9/22/2019   FKA OPENED
+        4:25 PM 9/22/2019   FKA WORK PAUSED
+        8:02 PM 9/22/2019   FKA REFACTORED API TO HIDE KEY IN DB
+        8:34 PM 9/22/2019   FKA REFACTORING FAILED, REVERTED TO PREV
+        7:49 PM 9/23/2019   FKA BORROWED GOOGLEMAP.HTML FOR TEST IN ADDPINS
+    -->
+    <div class="container" id="appbody">
+        <div class="row" id="frame">
+            <div class="col-md-11" id="frame">
+                <div class="row" id="maindisplay">
+                    <div class="col-md-12" id="title">
+                        <h1 id="maintitle">My Block</h1>
+                    </div>
+                </div>
+                
+                <div class="row spacer" id="spacer">
+                    <div class="col-md-12" id="spacer">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row" id="maininfo">
+                    <div class="col-md-1" id="gutter">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-10" id="maparea">
+                        <iframe src="../place-searching/InteractiveMap.html" frameborder="0"></iframe>
+                    </div>
+                    <div class="col-md-1" id="gutter">
+                        &nbsp;
+                    </div>
+                </div>
+                
+                <div class="row" id="spacer">
+                    <div class="col-md-12" id="spacer">
+                        &nbsp;
+                    </div>
+                </div>
+    </div>
+</body>
+</html>
