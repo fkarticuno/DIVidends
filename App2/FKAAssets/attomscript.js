@@ -29,7 +29,7 @@ $('.nearby').on('click',function() {
         //    $('#results').append(key, index)
         //}));
 
-        $('#icon').html('<div>'+ data.property[0].address.line1 +'</div>')
+        $('#icon').html('<div>'+ data.property[0].address.oneLine +'</div>')
         // If our results are greater than 0, continue
 
         }
