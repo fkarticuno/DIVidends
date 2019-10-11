@@ -1,0 +1,38 @@
+Jim Doyle- Instructor 9:15 PM
+Instructions:
+Project Goal:
+Build Something Awesome
+Requirements:
+Must uses at least two APIs
+Must use AJAX to pull data
+Must utilize at least one new library or technology that we haven’t discussed
+Must have a polished frontend / UI
+Must meet good quality coding standards (indentation, scoping, naming)
+Must NOT use alerts, confirms, or prompts (look into modals!)
+Must have some sort of repeating element (table, columns, etc)
+Must use Bootstrap or Alternative CSS Framework
+Must be Deployed (GitHub Pages or Firebase)
+Must have User Input Validation
+Presentation Date:
+Two Weeks from Today
+
+-
+6:54 PM 9/19/2019
+-
+Project Title
+DIVidends
+Team members
+Ron Aaron Frederick Leticia
+Project Description
+What's Nearby?
+Sketch Design
+---
+APIs used
+https://www.greatschools.org/api/request-api-key
+https://rapidapi.com/dimas/api/Pexels
+https://yourmapper2.p.rapidapi.com
+Rough breakdown of tasks
+Search an area for food housing schools and more
+
+git push origin Fred1
+https://rapidapi.com/dimas/api/Pexels

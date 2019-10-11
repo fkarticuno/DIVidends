@@ -1,0 +1,51 @@
+2:52 PM 9/27/2019
+
+Main Page
+> \DIVidends\App2\index.html
+	> CSS
+		\DIVidends\App2\FKAAssets\style.css
+	> Javascript
+		\DIVidends\App2\FKAAssets\app.js
+Iframe (embedded map)
+> \DIVidends\place-searching\InteractiveMap.html
+	> CSS
+		\DIVidends\place-searching\InteractiveMapStyle.css
+	> Javascript
+		\DIVidends\place-searching\script.js
+
+Notes
+> I moved all of the search functionality into the iframe (InteractiveMap.html).
+> When clicking the Nearby list items I get this error:
+	places_impl.js:78 Uncaught (in promise) TypeError: 
+	Cannot read property 'activeElement' of undefined
+    
+	at Object.v$.i (places_impl.js:78)
+    
+	at js?key=[redacted]&callback=createMap&libraries=places:27
+> The search bar (bottom right) works and returns pins
+> I need to add the Geolocation to center the map on the user by integrating
+[line 109] navigator.geolocation.getCurrentPosition(function(position) {code}
+and its related constituents from \DIVidends\AddPins\addpins.html.
+
+6:10 PM 9/27/2019
+
+
+11:05 AM 9/28/2019
+yelp key
+2lov69gUldxfBjwyuo57Py6pq-S8K1unfqBh9pBqHgg0h_BESErErf5x-wZpnbRx9EOVqdEyd-0Ru6ElqplGFdnrkwxHhFWKPp8AoS4rrU5lOPE7bRtBprZ4bHaPXXYx
+https://www.yelp.com/developers/documentation/v3/business
+
+Attom key
+3aa89d8842065dc09e6c55f752ca06cf
+
+2:07 PM 9/28/2019
+<!--
+database.ref().on("value", function(snapshot){
+    example = snapshot.val().example;
+    $('#example').text().html(snapshot.val().example)
+})
+-->
+
+2:10 PM 9/28/2019
+TTD
+add api triggers to nli# to populate #icon with data

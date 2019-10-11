@@ -17,6 +17,21 @@ ONCLICK METHOD
 })
 =======================================================================
 */
+
+                                    /* 11:15 PM 10/10/2019 workaround
+                                    =======================================================================
+                                    Due to new error appearing after app sucessfully presented I have added a passthrough buttton:
+                                    frame.js:172 Info: The current domain is not authorized for OAuth operations. 
+                                    This will prevent signInWithPopup, signInWithRedirect, linkWithPopup and 
+                                    linkWithRedirect from working. Add your domain (fkarticuno.github.io) to the OAuth
+                                    redirect domains list in the Firebase console -> Auth section -> Sign in method tab.
+                                    =======================================================================
+                                    */
+
+                                    $('#passthrough').on('click',function(){
+                                        window.location.href = '../place-searching/InteractiveMap.html'
+                                    })
+
 //  FIREBASE CONFIG
 var firebaseConfig = {
     apiKey: "AIzaSyAQSWHrrXes_C3tMYqhF_dia7C3jI2wMkc",
